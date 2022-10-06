@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Home</h1>
+    <pre>{{ currency.currency }}</pre>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+<script setup>
+import { onMounted } from 'vue';
+import { useCurrencyStore } from '@/stores/currency';
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld,
-  },
-};
+// eslint-disable-next-line no-unused-vars
+const currency = useCurrencyStore();
+
+onMounted(() => {
+  currency.fetchCurrency();
+});
 </script>
