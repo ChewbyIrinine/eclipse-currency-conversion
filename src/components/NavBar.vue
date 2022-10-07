@@ -23,15 +23,15 @@
             active-class="is-active"
             @click="showMobileNav = false"
           >
-            Home
+            Currencies List
           </RouterLink>
           <RouterLink
-            to="/about"
+            to="/converter"
             class="navbar-item"
             active-class="is-active"
             @click="showMobileNav = false"
           >
-            About
+            Converter
           </RouterLink>
         </div>
       </div>
