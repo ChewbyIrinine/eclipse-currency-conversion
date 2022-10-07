@@ -6,9 +6,16 @@ export const useCurrenciesStore = defineStore({
   id: 'currenciesStore',
   state: () => ({
     currenciesData: {},
+    filter: '',
   }),
   getters: {
-    getCurrencies: (state) => state.currenciesData.Valute,
+    // eslint-disable-next-line arrow-body-style
+    getFilteredCurrencies: (state) => {
+      // eslint-disable-next-line arrow-body-style
+      return Object.values(state.currenciesData.Valute || {}).filter((currency) => {
+        return currency.Name.toLowerCase().includes(state.filter.toLowerCase());
+      });
+    },
   },
   actions: {
     async fetchCurrencies() {

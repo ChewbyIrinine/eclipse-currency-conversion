@@ -1,28 +1,33 @@
 <template>
-  <div class="home">
-    <table class="table is-fullwidth">
-      <thead>
-        <tr>
-          <th>Number code</th>
-          <th>Character code</th>
-          <th>Nominal</th>
-          <th>Name</th>
-          <th>Value</th>
-          <th>Previous</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="currency in currenciesStore.getCurrencies" :key="currency.ID">
-          <td>{{ currency.NumCode }}</td>
-          <td>{{ currency.CharCode }}</td>
-          <td>{{ currency.Nominal }}</td>
-          <td>{{ currency.Name }}</td>
-          <td>{{ currency.Value }}</td>
-          <td>{{ currency.Previous }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <input
+    class="input is-success mb-2"
+    type="text"
+    placeholder="Filter currency..."
+    aria-label="Filter currency..."
+    v-model="currenciesStore.filter"
+  />
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Number code</th>
+        <th>Character code</th>
+        <th>Nominal</th>
+        <th>Name</th>
+        <th>Value</th>
+        <th>Previous</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="currency in currenciesStore.getFilteredCurrencies" :key="currency.ID">
+        <td>{{ currency.NumCode }}</td>
+        <td>{{ currency.CharCode }}</td>
+        <td>{{ currency.Nominal }}</td>
+        <td>{{ currency.Name }}</td>
+        <td>{{ currency.Value }}</td>
+        <td>{{ currency.Previous }}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script setup>
