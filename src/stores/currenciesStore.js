@@ -2,19 +2,19 @@ import { defineStore } from 'pinia';
 import axios from 'axios';
 
 // eslint-disable-next-line import/prefer-default-export
-export const useCurrencyStore = defineStore({
-  id: 'currency',
+export const useCurrenciesStore = defineStore({
+  id: 'currenciesStore',
   state: () => ({
-    currency: { 123: 123 },
+    currenciesData: {},
   }),
   getters: {
-    getCurrency: (state) => state.currency,
+    getCurrencies: (state) => state.currenciesData.Valute,
   },
   actions: {
-    async fetchCurrency() {
+    async fetchCurrencies() {
       try {
         const data = await axios.get('https://www.cbr-xml-daily.ru/daily_json.js');
-        this.currency = data.data;
+        this.currenciesData = data.data;
       } catch (error) {
         // eslint-disable-next-line
         console.log(error);

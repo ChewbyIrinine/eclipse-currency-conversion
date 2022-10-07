@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar is-success" role="navigation" aria-label="main navigation">
-    <div class="container is-max-desktop">
+    <div class="container is-max-desktop px-2">
       <div class="navbar-brand">
         <RouterLink to="/" class="navbar-item is-size-4 is-family-monospace">
           eclipse-currency-conversion
@@ -17,8 +17,22 @@
       </div>
       <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': showMobileNav }">
         <div class="navbar-end">
-          <RouterLink to="/" class="navbar-item" active-class="is-active"> Home </RouterLink>
-          <RouterLink to="/about" class="navbar-item" active-class="is-active"> About </RouterLink>
+          <RouterLink
+            to="/"
+            class="navbar-item"
+            active-class="is-active"
+            @click="showMobileNav = false"
+          >
+            Home
+          </RouterLink>
+          <RouterLink
+            to="/about"
+            class="navbar-item"
+            active-class="is-active"
+            @click="showMobileNav = false"
+          >
+            About
+          </RouterLink>
         </div>
       </div>
     </div>
